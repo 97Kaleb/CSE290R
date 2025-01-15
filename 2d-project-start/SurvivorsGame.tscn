@@ -1,0 +1,193 @@
+[gd_scene load_steps=5 format=3 uid="uid://btduip47a32fd"]
+
+[ext_resource type="Script" path="res://survivors_game.gd" id="1_48nmu"]
+[ext_resource type="PackedScene" uid="uid://bk0kj3d7s36cb" path="res://player.tscn" id="1_fsbw7"]
+[ext_resource type="PackedScene" uid="uid://bhbmgx0sqr0ap" path="res://tree.tscn" id="2_q74mp"]
+
+[sub_resource type="Curve2D" id="Curve2D_gm73y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -159, -50, 0, 0, 0, 0, 1990, -80, 0, 0, 0, 0, 2000, 1161, 0, 0, 0, 0, -172, 1154, 0, 0, 0, 0, -159, -50)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_48nmu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" parent="." instance=ExtResource("1_fsbw7")]
+position = Vector2(863, 557)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-863, -557)
+curve = SubResource("Curve2D_gm73y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-159, -50)
+rotation = -0.0139591
+
+[node name="Tree5" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-674, -556)
+
+[node name="Tree6" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(427, -788)
+
+[node name="Tree7" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-830, 253)
+
+[node name="Tree8" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(500, 255)
+
+[node name="Tree9" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-198, 106)
+
+[node name="Tree10" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(251, -314)
+
+[node name="Tree11" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-223, -334)
+
+[node name="Tree12" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-361, 511)
+
+[node name="Tree13" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(515, 887)
+
+[node name="Tree14" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(1295, -313)
+
+[node name="Tree15" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(931, 123)
+
+[node name="Tree16" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-305, 963)
+
+[node name="Tree" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(1585, 782)
+
+[node name="Tree2" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(1182, 392)
+
+[node name="Tree3" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(794, 1538)
+
+[node name="Tree4" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2204, 563)
+
+[node name="Tree17" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-66, 1430)
+
+[node name="Tree18" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2055, 1474)
+
+[node name="Tree19" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(3377, 2030)
+
+[node name="Tree20" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2816, 1174)
+
+[node name="Tree21" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(1151, 2221)
+
+[node name="Tree22" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2083, 2116)
+
+[node name="Tree23" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-362, 2068)
+
+[node name="Tree24" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1246, 870)
+
+[node name="Tree25" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1684, 2202)
+
+[node name="Tree26" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1227, 2183)
+
+[node name="Tree27" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1693, 270)
+
+[node name="Tree28" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-2017, 1469)
+
+[node name="Tree29" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1341, -377)
+
+[node name="Tree30" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-2036, -862)
+
+[node name="Tree31" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-1389, -1299)
+
+[node name="Tree32" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-780, -1147)
+
+[node name="Tree33" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(-304, -1100)
+
+[node name="Tree34" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(1703, -1185)
+
+[node name="Tree35" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(531, -1447)
+
+[node name="Tree36" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2854, -909)
+
+[node name="Tree37" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(3978, -899)
+
+[node name="Tree38" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(2536, -232)
+
+[node name="Tree39" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(3831, 470)
+
+[node name="Tree40" parent="." instance=ExtResource("2_q74mp")]
+position = Vector2(3011, 300)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="Label" type="Label" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 160
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
