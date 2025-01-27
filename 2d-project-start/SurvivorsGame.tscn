@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btduip47a32fd"]
+[gd_scene load_steps=6 format=3 uid="uid://btduip47a32fd"]
 
 [ext_resource type="Script" path="res://survivors_game.gd" id="1_48nmu"]
 [ext_resource type="PackedScene" uid="uid://bk0kj3d7s36cb" path="res://player.tscn" id="1_fsbw7"]
 [ext_resource type="PackedScene" uid="uid://bhbmgx0sqr0ap" path="res://tree.tscn" id="2_q74mp"]
+[ext_resource type="PackedScene" uid="uid://b5hy0abk3bmet" path="res://enemy.tscn" id="4_i2fpm"]
 
 [sub_resource type="Curve2D" id="Curve2D_gm73y"]
 _data = {
@@ -25,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("1_fsbw7")]
-position = Vector2(863, 557)
+position = Vector2(960, 540)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-863, -557)
@@ -35,6 +36,80 @@ curve = SubResource("Curve2D_gm73y")
 unique_name_in_owner = true
 position = Vector2(-159, -50)
 rotation = -0.0139591
+
+[node name="LevelMenu" type="CanvasLayer" parent="Player"]
+unique_name_in_owner = true
+layer = 5
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/LevelMenu"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.125911, 0.125911, 0.125911, 0.470588)
+
+[node name="Option 1" type="ColorRect" parent="Player/LevelMenu"]
+offset_left = 200.0
+offset_top = 320.0
+offset_right = 565.0
+offset_bottom = 760.0
+
+[node name="Label" type="Label" parent="Player/LevelMenu/Option 1"]
+layout_mode = 0
+offset_right = 365.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "1:
+Increase
+Defense"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option 2" type="ColorRect" parent="Player/LevelMenu"]
+offset_left = 760.0
+offset_top = 320.0
+offset_right = 1125.0
+offset_bottom = 760.0
+
+[node name="Label" type="Label" parent="Player/LevelMenu/Option 2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -220.0
+offset_right = 182.5
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "2:
+Increase
+Regeneration"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option 3" type="ColorRect" parent="Player/LevelMenu"]
+offset_left = 1296.0
+offset_top = 320.0
+offset_right = 1661.0
+offset_bottom = 760.0
+
+[node name="Label" type="Label" parent="Player/LevelMenu/Option 3"]
+layout_mode = 0
+offset_right = 365.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "3:
+Increase
+Attack
+Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Tree5" parent="." instance=ExtResource("2_q74mp")]
 position = Vector2(-674, -556)
@@ -157,7 +232,7 @@ position = Vector2(3831, 470)
 position = Vector2(3011, 300)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
@@ -189,5 +264,10 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Enemy" parent="." instance=ExtResource("4_i2fpm")]
+position = Vector2(-491, 1452)
+
+[connection signal="kill" from="." to="Player" method="_on_game_kill"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="defeated" from="Enemy" to="." method="_on_enemy_defeated"]

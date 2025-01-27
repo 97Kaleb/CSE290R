@@ -15,3 +15,8 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	shoot()
+
+func _on_player_speed_increase() -> void:
+	%Timer.wait_time -= .05
+	if %Timer.wait_time <= 0.0:
+		%Timer.wait_time = .1
